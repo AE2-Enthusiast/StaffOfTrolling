@@ -40,7 +40,7 @@ public class CommandTeleport implements IClientCommand {
 
     @Override
     public String getName() {
-        return "packetTeleport";
+        return "setTeleport";
     }
 
     @Override

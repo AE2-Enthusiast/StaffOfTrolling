@@ -19,6 +19,7 @@ public class SOTTrolling
     	if (event.getSide() == Side.CLIENT) {
             KeybindHandler.init();
             CommandTeleport.init();
+            CommandTarget.init();
         }
                         
     }
