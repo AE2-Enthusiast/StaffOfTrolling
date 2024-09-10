@@ -28,11 +28,14 @@ import javax.annotation.Nullable;
 public class CommandTarget implements IClientCommand {
 
     Logger LOGGER = LogManager.getLogger();
+
     @Override
-    public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
+    public void execute(MinecraftServer server, ICommandSender sender, String[] args)
+        throws CommandException {
         Entity entitySender = sender.getCommandSenderEntity();
 
-        if (args.length != 8 || !(entitySender instanceof EntityPlayer)) {
+        if (args.length != 8 || !(entitySender instanceof EntityPlayer))
+        {
             return;
         }
         BlockPos telepadPos = CommandBase.parseBlockPos(sender, args, 0, false);
@@ -43,11 +46,8 @@ public class CommandTarget implements IClientCommand {
                 new BlockPos(Integer.valueOf(args[3]), Integer.valueOf(args[4]),
                     Integer.valueOf(args[5])),
                 CommandBase.parseInt(args[6]), args[7], new ItemStack(Items.NETHER_STAR));
-        	PacketTargetList list = new PacketTargetList(dialingDevice, target, true);
-        	PacketHandler.INSTANCE.sendToServer(list);
-            LOGGER.info("Sending Packet!");
-        } else {
-            LOGGER.info("te was null/not a dialing device!");
+            PacketTargetList list = new PacketTargetList(dialingDevice, target, true);
+            PacketHandler.INSTANCE.sendToServer(list);
         }
 
     }
@@ -63,7 +63,7 @@ public class CommandTarget implements IClientCommand {
 
     @Override
     public String getUsage(ICommandSender sender) {
-        return "<dialing> <target> <dimId> where dialing and target are BlockPoses";
+        return "<dialing (x, y, z)> <target (x, y, z)> <dimId> <label> where dialing and target are BlockPoses";
     }
 
     @Override
@@ -77,10 +77,10 @@ public class CommandTarget implements IClientCommand {
     }
 
     @Override
-	public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args,
-			@Nullable BlockPos targetPos) {
-		return Collections.<String>emptyList();
-	}
+    public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender,
+        String[] args, @Nullable BlockPos targetPos) {
+        return Collections.<String>emptyList();
+    }
 
     @Override
     public boolean isUsernameIndex(String[] args, int index) {
@@ -93,8 +93,7 @@ public class CommandTarget implements IClientCommand {
     }
 
     @Override
-	public int compareTo(ICommand command)
-    {
+    public int compareTo(ICommand command) {
         return this.getName().compareTo(command.getName());
     }
 }
