@@ -1,10 +1,5 @@
 package stone.SOTTrolling;
 
-import java.util.Collections;
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import crazypants.enderio.base.item.coordselector.TelepadTarget;
 import crazypants.enderio.base.network.PacketHandler;
 import crazypants.enderio.machines.machine.teleport.telepad.TileDialingDevice;
@@ -15,28 +10,44 @@ import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.client.IClientCommand;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.Collections;
+import java.util.List;
+
+import javax.annotation.Nullable;
 
 public class CommandTarget implements IClientCommand {
 
+    Logger LOGGER = LogManager.getLogger();
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
         Entity entitySender = sender.getCommandSenderEntity();
 
-        if (args.length != 7 || !(entitySender instanceof EntityPlayer)) {
+        if (args.length != 8 || !(entitySender instanceof EntityPlayer)) {
             return;
         }
         BlockPos telepadPos = CommandBase.parseBlockPos(sender, args, 0, false);
         TileEntity te = sender.getEntityWorld().getTileEntity(telepadPos);
         if (te != null && te instanceof TileDialingDevice dialingDevice)
         {
-        	TelepadTarget target = new TelepadTarget(CommandBase.parseBlockPos(entitySender, args, 3, false), CommandBase.parseInt(args[6]));
+            TelepadTarget target = new TelepadTarget(
+                new BlockPos(Integer.valueOf(args[3]), Integer.valueOf(args[4]),
+                    Integer.valueOf(args[5])),
+                CommandBase.parseInt(args[6]), args[7], new ItemStack(Items.NETHER_STAR));
         	PacketTargetList list = new PacketTargetList(dialingDevice, target, true);
         	PacketHandler.INSTANCE.sendToServer(list);
+            LOGGER.info("Sending Packet!");
+        } else {
+            LOGGER.info("te was null/not a dialing device!");
         }
 
     }
@@ -68,9 +79,6 @@ public class CommandTarget implements IClientCommand {
     @Override
 	public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args,
 			@Nullable BlockPos targetPos) {
-		if (args.length <= 3) {
-			return CommandBase.getTabCompletionCoordinate(args, 0, targetPos);
-		}
 		return Collections.<String>emptyList();
 	}
 

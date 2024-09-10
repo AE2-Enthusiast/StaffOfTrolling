@@ -3,7 +3,6 @@ package stone.SOTTrolling;
 import crazypants.enderio.api.teleport.TravelSource;
 import crazypants.enderio.base.network.PacketHandler;
 import crazypants.enderio.base.teleport.packet.PacketTravelEvent;
-
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
@@ -18,6 +17,7 @@ import net.minecraftforge.client.IClientCommand;
 
 import java.util.Collections;
 import java.util.List;
+
 import javax.annotation.Nullable;
 
 public class CommandTeleport implements IClientCommand {
@@ -40,7 +40,7 @@ public class CommandTeleport implements IClientCommand {
 
     @Override
     public String getName() {
-        return "setTeleport";
+        return "packetTP";
     }
 
     @Override
