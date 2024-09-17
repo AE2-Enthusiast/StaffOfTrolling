@@ -7,6 +7,10 @@ doesn't need op. Also can't tp to players because you're client is telling the
 server where to tp and you wouldn't know where someone outside of render
 distance is.
 
+Also adds in the command `setTarget` that sends a packet that adds an arbitrary
+target to a dialing device, allowing teleportation to arbitrary locations and
+dimensions. Syntax is <dialing pos> <tp pos> <dimID> <target name>.
+
 # Credits
  - Chocolate\_mikk\_\_ for [Staff of Travelling
    Keybind](https://www.curseforge.com/minecraft/mc-mods/staff-of-traveling-keybind3),
