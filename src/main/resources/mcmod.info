@@ -1,11 +1,11 @@
 [{
     "modid": "${modid}",
     "name": "${modname}",
-    "description": "\"If they didn't intend for this, they would have programmed better\"",
+    "description": "\"If they didn't intend for this, they should've programmed better\"",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "logoFile": "",
-    "url": "https://github.com/SamStone1000/StaffOfTrolling",
+    "url": "https://github.com/AE2_Enthusiast/StaffOfTrolling",
     "authorList": ["Raine"],
     "credits": "",
     "dependencies": ["enderio"]
