@@ -1,4 +1,4 @@
-package stone.SOTTrolling;
+package stone.sot;
 
 import crazypants.enderio.api.teleport.TravelSource;
 import crazypants.enderio.base.network.PacketHandler;

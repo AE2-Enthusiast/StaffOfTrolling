@@ -1,4 +1,4 @@
-package stone.SOTTrolling;
+package stone.sot;
 
 import crazypants.enderio.base.item.coordselector.TelepadTarget;
 import crazypants.enderio.base.network.PacketHandler;

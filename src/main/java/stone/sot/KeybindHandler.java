@@ -1,4 +1,4 @@
-package stone.SOTTrolling;
+package stone.sot;
 
 import org.lwjgl.input.Keyboard;
 

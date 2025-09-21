@@ -1,4 +1,4 @@
-package stone.SOTTrolling;
+package stone.sot;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -6,8 +6,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
-@Mod(modid = SOTTrolling.MODID, name = SOTTrolling.NAME, version = SOTTrolling.VERSION)
-public class SOTTrolling
+@Mod(modid = sot.MODID, name = sot.NAME, version = sot.VERSION)
+public class StaffOfTrolling
 {
     public static final String MODID = "staffoftrolling";
     public static final String NAME = "Staff Of Trolling";
