@@ -6,7 +6,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
-@Mod(modid = sot.MODID, name = sot.NAME, version = sot.VERSION)
+@Mod(modid = StaffOfTrolling.MODID, name = StaffOfTrolling.NAME, version = StaffOfTrolling.VERSION)
 public class StaffOfTrolling
 {
     public static final String MODID = "staffoftrolling";
