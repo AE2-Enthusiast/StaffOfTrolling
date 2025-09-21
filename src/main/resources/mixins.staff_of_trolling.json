@@ -1,0 +1,10 @@
+{
+  "package": "stone.sot.mixins",
+  "refmap": "mixins.staff_of_trolling.refmap.json",
+  "target": "@env(DEFAULT)",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [],
+  "client": ["NettyPacketDecoderMixin"],
+  "server": []
+}
